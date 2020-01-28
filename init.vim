@@ -1,0 +1,1 @@
+/Users/tupteq/.config/nvim/init.vim
