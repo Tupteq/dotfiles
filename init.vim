@@ -153,7 +153,7 @@ let g:deoplete#sources#jedi#python_path = '/Users/tupteq/.local/share/nvim/venv/
 " ale
 let g:ale_python_black_executable = '/Users/tupteq/.local/share/nvim/venv/bin/black'
 let g:ale_python_flake8_executable = '/Users/tupteq/.local/share/nvim/venv/bin/flake8'
-let g:ale_python_flake8_options = '--max-line-length=88 --max-complexity=10 --ignore="E203,W503"'
+let g:ale_python_flake8_options = '--max-complexity=10 --ignore="E203,E501,W503"'
 let g:ale_python_isort_executable = '/Users/tupteq/.local/share/nvim/venv/bin/isort'
 let g:ale_python_mypy_executable = '/Users/tupteq/.local/share/nvim/venv/bin/mypy'
 let g:ale_fixers = {'python': ['isort', 'black']}
