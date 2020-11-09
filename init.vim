@@ -108,6 +108,10 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 " python
 let g:python3_host_prog = '/Users/tupteq/.local/share/nvim/venv/bin/python'
 
+" init.vim helpers
+nnoremap <silent> <Leader>is :source $MYVIMRC<cr>
+nnoremap <silent> <Leader>ie :e $MYVIMRC<cr>
+
 call plug#begin()
 Plug '/usr/local/opt/fzf'
 Plug 'morhetz/gruvbox'
@@ -124,6 +128,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-abolish'
 call plug#end()
 
 " fzf
