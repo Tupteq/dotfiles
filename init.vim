@@ -45,13 +45,6 @@ let mapleader = ","
 " Start an external command with a single bang
 nnoremap ! :!
 
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-
 " Set lines to the cursor - when moving vertically using j/k
 set so=3
 
@@ -89,11 +82,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Search improvements
-map <space> /
-map <C-space> ?
-map <silent> <leader><cr> :noh<cr>
-
 " Tab and indent
 set tabstop=4
 set shiftwidth=4
@@ -129,13 +117,14 @@ Plug 'tpope/vim-obsession'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-abolish'
+Plug 'moll/vim-bbye'
 call plug#end()
 
 " fzf
 set rtp+=/usr/local/opt/fzf
 nmap \ :Buffers<CR>
 nmap <C-P> :Files<CR>
-nmap <A-\> :History:<CR>
+nmap <C-\> :History:<CR>
 nmap <bar> :History<CR>
 
 " gruvbox
@@ -151,9 +140,7 @@ hi clear CursorLine  " Highlight only current line number
 let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
 set completeopt+=noinsert
-
-" deoplete-jedi
-let g:deoplete#sources#jedi#python_path = '/Users/tupteq/.local/share/nvim/venv/bin/python'
+"call deoplete#custom#option('ignore_sources', {'_': ['buffer']})
 
 " ale
 let g:ale_python_black_executable = '/Users/tupteq/.local/share/nvim/venv/bin/black'
@@ -169,3 +156,19 @@ map <C-n> :NERDTreeToggle<CR>
 
 " jedi
 let g:jedi#completions_enabled = 0
+
+" lightline (filename replaced by relativepath)
+let g:lightline = {
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly','relativepath' , 'modified' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'inactive': {
+        \   'left': [ [ 'relativepath', 'modified' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ] ]
+    \ }
+    \ }

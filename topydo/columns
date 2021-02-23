@@ -1,6 +1,7 @@
 [inbox]
 title = Inbox
 filterexpr = (<Z) -@
+sortexpr = desc:created
 
 [day_focus]
 title = Day Focus (<=4/<=5/<=5)

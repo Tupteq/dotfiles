@@ -26,3 +26,5 @@ q = cmd quit
 <Esc> = cmd quit
 * = cmd tag {} star 1
 8 = cmd tag {} star
+<C-t> = mark
+<Backspace> = cmd del {}
