@@ -143,11 +143,13 @@ set completeopt+=noinsert
 "call deoplete#custom#option('ignore_sources', {'_': ['buffer']})
 
 " ale
+"let g:ale_use_global_executables = 1
 let g:ale_python_black_executable = '/Users/tupteq/.local/share/nvim/venv/bin/black'
 let g:ale_python_flake8_executable = '/Users/tupteq/.local/share/nvim/venv/bin/flake8'
-let g:ale_python_flake8_options = '--max-complexity=10 --ignore="E203,E501,W503"'
+"let g:ale_python_flake8_options = '--max-complexity=10 --ignore="E203,E501,W503"'
+let g:ale_python_flake8_options = '--max-complexity=10 --ignore="E501,W503"'
 let g:ale_python_isort_executable = '/Users/tupteq/.local/share/nvim/venv/bin/isort'
-let g:ale_python_mypy_executable = '/Users/tupteq/.local/share/nvim/venv/bin/mypy'
+"let g:ale_python_mypy_executable = '/Users/tupteq/.local/share/nvim/venv/bin/mypy'
 let g:ale_fixers = {'python': ['isort', 'black']}
 map <leader>x :ALEFix<CR>
 
