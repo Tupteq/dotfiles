@@ -22,9 +22,9 @@ set noshowmode
 set ignorecase
 set smartcase
 " Normalize search regex
-nnoremap / /\v
+nnoremap / :noh<CR>/\v
 vnoremap / /\v
-nnoremap ? ?\v
+nnoremap ? :noh<CR>?\v
 vnoremap ? ?\v
 
 " Enable filetype plugins
@@ -143,14 +143,16 @@ set completeopt+=noinsert
 "call deoplete#custom#option('ignore_sources', {'_': ['buffer']})
 
 " ale
-"let g:ale_use_global_executables = 1
 let g:ale_python_black_executable = '/Users/tupteq/.local/share/nvim/venv/bin/black'
 let g:ale_python_flake8_executable = '/Users/tupteq/.local/share/nvim/venv/bin/flake8'
-"let g:ale_python_flake8_options = '--max-complexity=10 --ignore="E203,E501,W503"'
 let g:ale_python_flake8_options = '--max-complexity=10 --ignore="E501,W503"'
 let g:ale_python_isort_executable = '/Users/tupteq/.local/share/nvim/venv/bin/isort'
 "let g:ale_python_mypy_executable = '/Users/tupteq/.local/share/nvim/venv/bin/mypy'
-let g:ale_fixers = {'python': ['isort', 'black']}
+function! FormatJson(buffer) abort
+    return {'command': 'python3 -m json.tool --indent 2'}
+endfunction
+execute ale#fix#registry#Add('jsonfmt', 'FormatJson', ['json'], 'jsonfmt for json')
+let g:ale_fixers = {'python': ['isort', 'black'], 'json': ['jsonfmt']}
 map <leader>x :ALEFix<CR>
 
 " nerdtree
